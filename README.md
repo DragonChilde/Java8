@@ -294,13 +294,149 @@ Lambda 表达式需要“函数式接口”的支持
         return myFun.getValue(num);
     }
 
-1. 调用Collections.sort()方法,通过定制排序比较两个Employee(先按年龄比,年龄相同按姓名比)，使用Lamabda作为参数传递
+-  调用Collections.sort()方法,通过定制排序比较两个Employee(先按年龄比,年龄相同按姓名比)，使用Lamabda作为参数传递
+
+		static List<Employee> emps = Arrays.asList(
+	            new Employee(101, "张三", 18, 9999.99),
+	            new Employee(102, "李四", 59, 6666.66),
+	            new Employee(103, "王五", 28, 3333.33),
+	            new Employee(104, "赵六", 8, 7777.77),
+	            new Employee(105, "田七", 38, 5555.55)
+	    );
+
+		private static void test1(){
+	        Collections.sort(emps,(e1,e2) -> {
+	            if(e1.getAge() == e2.getAge())
+	            {
+	                return e1.getName().compareTo(e2.getName());
+	            }
+	            return Integer.compare(e1.getAge(),e2.getAge());
+	        });
+	
+	        for (Employee employee:emps)
+	        {
+	            System.out.println(employee);
+	        }
+	    }
+
+		Employee{id=104, name='赵六', age=8, salary=7777.77}
+		Employee{id=101, name='张三', age=18, salary=9999.99}
+		Employee{id=103, name='王五', age=28, salary=3333.33}
+		Employee{id=105, name='田七', age=38, salary=5555.55}
+		Employee{id=102, name='李四', age=59, salary=6666.66}
+
 2. 
 	1. 声明函数式接口,接口中声明抽象方法，public String getValue(String str);
 	2. 声明类TestLamabda,类中编写方法使用接口作为参数,将一个字符串转成大写,并作为方法的返回值.
 	3. 再将一个字符串的第2个和第4个索引位置进行截取子串
+
+
+			@FunctionalInterface
+			public interface MyFunction {
+			
+			    public String getValue(String str);
+			}
+
+			   private static void test2()
+			    {
+			        String str = show("Hello World", x -> x.toUpperCase());
+			        System.out.println(str);
+			        String substr = show("Hello World", x -> x.substring(2, 4));
+			        System.out.println(substr);
+			    }
+			
+			    private static String show(String str, MyFunction myFunction){
+			        return myFunction.getValue(str);
+			    }
+
 3. 
 	1. 声明一个带两个泛型的函数式接口,泛型类型为<T,R> T为参数,R为返回值
 	2. 接口中声明对应抽象方法
 	3. 在TestLambda类中声明方法,使用接口作为参数,计算两个long型参数的和
 	4. 再计算两个long型参数的乘积	
+
+			@FunctionalInterface
+			public interface MyFunction2<T,R> {
+			    public R getValue(T value1,T value2);
+			}
+
+		    private static void test3()
+		    {
+		        operation(100L,200L,(x,y) -> x+y);
+		        operation(300L,5L,(x,y) -> x*y);
+		    }
+		
+		    private static void operation(Long l1, Long l2, MyFunction2<Long,Long> myFunction2){
+		        System.out.println(myFunction2.getValue(l1, l2));
+		    }
+
+**Java8 内置的四大核心函数式接口**
+
+- **Consumer<T> : 消费型接口 void accept(T t)**
+
+		 private static void test1()
+	    {
+	        show("hello world!",x -> System.out.println(x));
+	    }
+	
+	    private static void show(String str, Consumer<String> consumer)
+	    {
+	        consumer.accept(str);
+	    }
+
+- **Supplier<T> : 供给型接口 T get()**
+
+		 private static void test2()
+	    {
+	        List<Integer> numList = getNumList(10, () -> (int) (Math.random() * 100));
+	        System.out.println(numList);
+	    }
+	
+	    private static List<Integer> getNumList(Integer num, Supplier<Integer> supplier)
+	    {
+	        List<Integer> list = new ArrayList<>();
+	        for (int i = 0; i < num; i++) {
+	            Integer integer = supplier.get();
+	            list.add(integer);
+	        }
+	        return list;
+	
+	    }
+
+- **Function<T, R> : 函数型接口 R apply(T t)**
+
+	 	 private static void test3()
+	    {
+	        String s1 = handleStr("\t\t\t hello world!   ", x -> x.trim());
+	        System.out.println(s1);
+	
+	        String s2 = handleStr("hello world!", x -> x.substring(2,6));
+	        System.out.println(s2);
+	    }
+	
+	    private static String handleStr(String str , Function<String,String> function)
+	    {
+	        return function.apply(str);
+	    }
+
+- **Predicate<T> : 断言型接口 boolean test(T t)**
+
+	    private static void test4()
+	    {
+	        List<String> list = Arrays.asList("aaa", "bbbb", "cccccc", "ddddddd");
+	        List<String> stringList = filterStr(list, x -> x.length() > 4);
+	        System.out.println(stringList);
+	    }
+	
+	    private static List<String> filterStr(List<String> list, Predicate<String> predicate)
+	    {
+	        List<String> strList = new ArrayList<>();
+	
+	        for (String str : list) {
+	            if(predicate.test(str)){
+	                strList.add(str);
+	            }
+	        }
+	        return strList;
+	
+	    }
