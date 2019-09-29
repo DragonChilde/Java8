@@ -1153,3 +1153,153 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 		/**利用这方法也可以得到上面summingDouble之类所有方法的效果**/
 
 		collectiogAndThen		转换函数返回的类型		//包裹另一个收集器,对其结果转换函数
+
+
+举例1:	
+
+	/*给定一个数字列表，如何返回一个由每个数的平方构成的列表呢？
+		，给定【1，2，3，4，5】， 应该返回【1，4，9，16，25】。*/
+	private static void test1()
+    {
+        Integer[] integers = {1, 2, 3, 4, 5};
+       Arrays.stream(integers).map(x -> x * x).forEach(System.out::println);
+    }
+
+	/*怎样用 map 和 reduce 方法数一数流中有多少个Employee呢？*/
+    private static void test2()
+    {
+        Optional<Integer> count = emps.stream().map(e -> 1).reduce(Integer::sum);
+        System.out.println(count);
+    }
+
+举例2:
+
+	public class TestStreamAPI2 {
+	
+	    private static List<Transaction> transactions = Arrays.asList(
+	            new Transaction(new Trader("Brian", "Cambridge"), 2011, 300),
+	            new Transaction(new Trader("Raoul", "Cambridge"), 2012, 1000),
+	            new Transaction(new Trader("Raoul", "Cambridge"), 2011, 400),
+	            new Transaction(new Trader("Mario", "Milan"), 2012, 710),
+	            new Transaction(new Trader("Mario", "Milan"), 2012, 700),
+	            new Transaction(new Trader("Alan", "Cambridge"), 2012, 950)
+	
+	    );
+	
+	    public static void main(String[] args) {
+	        test1();
+	        System.out.println("--------------");
+	        test2();
+	        System.out.println("--------------");
+	        test3();
+	        System.out.println("------------");
+	        test4();
+	        System.out.println("-------------");
+	        test5();
+	        System.out.println("--------------");
+	        test6();
+	        System.out.println("--------------");
+	        test7();
+	        System.out.println("--------------");
+	        test8();
+	    }
+	
+	    //1. 找出2011年发生的所有交易， 并按交易额排序（从低到高）
+	    private static void test1()
+	    {
+	        transactions.stream().filter(t -> t.getYear() == 2011).sorted((t1,t2) -> Integer.compare(t1.getValue(),t2.getValue())).forEach(System.out::println);
+	    }
+	
+	    //2. 交易员都在哪些不同的城市工作过？
+	    private static void test2()
+	    {
+	        transactions.stream().map(t -> t.getTrader().getCity()).distinct().forEach(System.out::println);
+	    }
+	
+	    //3. 查找所有来自剑桥的交易员，并按姓名排序
+	    private static void test3()
+	    {
+	        transactions.stream()
+	                .filter(x -> x.getTrader().getCity().equals("Cambridge"))
+	                .map(Transaction::getTrader)
+	                .sorted((t1,t2) -> t1.getName().compareTo(t2.getName()))
+	                .distinct()
+	                .forEach(System.out::println);
+	    }
+	
+	    //4. 返回所有交易员的姓名字符串，按字母顺序排序
+	    private static void test4()
+	    {
+	        /*方法一*/
+	        transactions.stream()
+	                .map(t -> t.getTrader().getName())
+	                .sorted()
+	                .forEach(System.out::println);
+	
+	        System.out.println("====================");
+	
+	        /*方法二*/
+	        String str = transactions.stream()
+	                .map(t -> t.getTrader().getName())
+	                .sorted()
+	                .reduce("", String::concat);
+	        System.out.println(str);
+	
+	        System.out.println("===============");
+	
+	        /*方法三(不区分大小写排序)*/
+	        transactions.stream()
+	                .map(t -> t.getTrader().getName())
+	                .flatMap(TestStreamAPI2::filterCharacter)
+	                .sorted((s1,s2) -> s1.compareToIgnoreCase(s2))
+	                .forEach(System.out::println);
+	
+	
+	    }
+	
+	    private static Stream<String> filterCharacter(String str)
+	    {
+	        ArrayList<String> list = new ArrayList<>();
+	        for (Character ch : str.toCharArray())
+	        {
+	            list.add(ch.toString());
+	        }
+	        return list.stream();
+	    }
+	
+	    //5. 有没有交易员是在米兰工作的？
+	    private static void test5()
+	    {
+	        boolean b = transactions.stream()
+	                .anyMatch(x -> x.getTrader().getCity().equals("Milan"));
+	        System.out.println(b);
+	    }
+	
+	    //6. 打印生活在剑桥的交易员的所有交易额
+	    private static void test6()
+	    {
+	        transactions.stream()
+	                .filter(x -> x.getTrader().getCity().equals("Cambridge"))
+	                .map(Transaction::getValue)
+	                .forEach(System.out::println);
+	    }
+	
+	    //7. 所有交易中，最高的交易额是多少
+	    private static void test7()
+	    {
+	        Optional<Integer> max = transactions.stream()
+	                .map(x -> x.getValue())
+	                .max(Integer::compareTo);
+	        System.out.println(max.get());
+	    }
+	
+	    //8. 找到交易额最小的交易
+	    private static void test8()
+	    {
+	        Optional<Transaction> min = transactions.stream()
+	                .min((t1, t2) -> Integer.compare(t1.getValue(), t2.getValue()));
+	        System.out.println(min);
+	    }
+	}
+
+**并行流与串行流**
