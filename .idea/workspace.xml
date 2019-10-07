@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88f70021-f31d-454c-83ed-56107c8142e1" name="Default Changelist" comment="" />
+    <list default="true" id="88f70021-f31d-454c-83ed-56107c8142e1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java8.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Java8.kotlin_module" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -10,37 +15,56 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-390606410">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.13" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="3" />
+          <entry key="java" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="3" />
+          <entry key="JAVA" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="611" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="611" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2182">
-              <caret line="123" column="28" lean-forward="true" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="50" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI2.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/forkjoin/ForkJoinCalculate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" selection-start-line="15" selection-end-line="141" selection-end-column="1" />
+            <state relative-caret-position="526">
+              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/forkjoin/TestForkJoin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-252">
+              <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -49,64 +73,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Transaction.java">
+        <entry file="jar://G:/Services/Java/JDK8/src.zip!/java/util/concurrent/RecursiveTask.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-              <folding>
-                <element signature="e#211#212#0" expanded="true" />
-                <element signature="e#240#241#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-                <element signature="e#348#349#0" expanded="true" />
-                <element signature="e#375#376#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#444#445#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-                <element signature="e#501#502#0" expanded="true" />
-                <element signature="e#540#541#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="234">
+              <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Trader.java">
+        <entry file="jar://G:/Services/Java/JDK8/jre/lib/rt.jar!/java/util/concurrent/RecursiveAction.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-              <folding>
-                <element signature="e#182#183#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#249#250#0" expanded="true" />
-                <element signature="e#281#282#0" expanded="true" />
-                <element signature="e#312#313#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#379#380#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Optional.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="24" column="6" selection-start-line="16" selection-start-column="2" selection-end-line="24" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="72">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -120,6 +99,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -149,8 +131,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/java/stream/bean/Trader.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/stream/bean/Transaction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/forkjoin/TestForkJoin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/forkjoin/ForkJoinCalculate.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -165,18 +155,19 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="688" />
-    <option name="y" value="89" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-59" />
+    <option name="y" value="71" />
     <option name="width" value="1920" />
-    <option name="height" value="1034" />
+    <option name="height" value="1065" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -217,57 +208,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lambda" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Java8" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stream" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Java8" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stream" type="462c0819:PsiDirectoryNode" />
-              <item name="bean" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Java8" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="stream" type="462c0819:PsiDirectoryNode" />
-              <item name="practice" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Java8" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Java8" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="forkjoin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -287,7 +240,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestStreamAPI2">
+  <component name="RunManager" selected="Application.TestForkJoin">
+    <configuration name="TestForkJoin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java.forkjoin.TestForkJoin" />
+      <module name="Java8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestStreamAPI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.java.stream.practice.TestStreamAPI" />
       <module name="Java8" />
@@ -297,13 +257,6 @@
     </configuration>
     <configuration name="TestStreamAPI2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.java.stream.practice.TestStreamAPI2" />
-      <module name="Java8" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestStreamApi" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.stream.TestStreamApi" />
       <module name="Java8" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -323,13 +276,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.TestStreamAPI" />
+      <item itemvalue="Application.TestStreamAPI2" />
+      <item itemvalue="Application.TestStreamApi2" />
+      <item itemvalue="Application.TestStreamApi3" />
+      <item itemvalue="Application.TestForkJoin" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.TestForkJoin" />
         <item itemvalue="Application.TestStreamAPI2" />
         <item itemvalue="Application.TestStreamAPI" />
         <item itemvalue="Application.TestStreamApi3" />
         <item itemvalue="Application.TestStreamApi2" />
-        <item itemvalue="Application.TestStreamApi" />
       </list>
     </recent_temporary>
   </component>
@@ -347,32 +307,35 @@
       <workItem from="1569552373293" duration="9434000" />
       <workItem from="1569635971031" duration="12173000" />
       <workItem from="1569726559816" duration="7762000" />
+      <workItem from="1569919113351" duration="3339000" />
+      <workItem from="1570435017064" duration="4639000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60005000" />
+    <option name="totallyTimeSpent" value="67983000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-59" y="71" width="1920" height="1065" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.15458423" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.16451614" />
       <window_info id="Structure" order="1" sideWeight="0.50080776" side_tool="true" weight="0.15191898" />
       <window_info id="JRebel" order="2" side_tool="true" />
       <window_info id="Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Learn" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.13444445" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.20472442" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="JRebel Console" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="JRebel Executor" order="13" />
@@ -383,6 +346,7 @@
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="Maven" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919224" visible="true" weight="0.15483871" />
@@ -416,24 +380,12 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lamabda.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#150#151#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#395#396#0" expanded="true" />
-            <element signature="e#475#476#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda1.java" />
     <entry file="file://$PROJECT_DIR$/src/test/java/test.java" />
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -442,315 +394,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyPredicate.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyPredicate.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/FilterEmployeeForAge.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/FilterEmployeeForSalary.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Runnable.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFun.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda3.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFunction2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFunction.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda4.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/practice/TestLamabda.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda5.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/BiPredicate.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Integer.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/BiFunction.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Math.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Supplier.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Predicate.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/io/PrintStream.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Consumer.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Arrays.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/String.java" />
+    <entry file="jar://D:/Server/jdk8/jre/lib/rt.jar!/java/lang/Comparable.class" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Comparator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/Employee.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Function.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/stream/Stream.java" />
+    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Optional.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi2.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Transaction.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Trader.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi3.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI2.java" />
+    <entry file="jar://G:/Services/Java/JDK8/src.zip!/java/util/concurrent/ForkJoinTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="276">
+          <caret line="211" column="22" selection-start-line="211" selection-start-column="22" selection-end-line="211" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/FilterEmployeeForAge.java">
+    <entry file="jar://G:/Services/Java/JDK8/src.zip!/java/util/concurrent/RecursiveTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="17" />
+        <state relative-caret-position="234">
+          <caret line="67" column="22" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/FilterEmployeeForSalary.java">
+    <entry file="jar://G:/Services/Java/JDK8/jre/lib/rt.jar!/java/util/concurrent/RecursiveAction.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="72">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Runnable.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/forkjoin/TestForkJoin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="67" column="19" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="45" column="3" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+        <state relative-caret-position="-252">
+          <caret line="13" column="8" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda2.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/forkjoin/ForkJoinCalculate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="115" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFunction2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/inter/MyFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="87" column="5" selection-start-line="75" selection-start-column="2" selection-end-line="87" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/practice/TestLamabda.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="60" selection-start-line="60" selection-end-line="68" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/TestLambda5.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1423">
-          <caret line="166" column="8" lean-forward="true" selection-start-line="166" selection-start-column="8" selection-end-line="166" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/BiPredicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21564">
-          <caret line="1259" column="68" selection-start-line="1259" selection-start-column="68" selection-end-line="1259" selection-end-column="68" />
-          <folding>
-            <element signature="e#47036#47037#0" expanded="true" />
-            <element signature="e#47092#47093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/BiFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/Math.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22320">
-          <caret line="1312" column="48" selection-start-line="1312" selection-start-column="18" selection-end-line="1312" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Supplier.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="47" column="6" selection-start-line="47" selection-start-column="6" selection-end-line="47" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Predicate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="39" column="17" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/io/PrintStream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13824">
-          <caret line="819" column="16" selection-start-line="819" selection-start-column="16" selection-end-line="819" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Consumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Arrays.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="96" column="28" lean-forward="true" selection-start-line="96" selection-start-column="28" selection-end-line="96" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="185" column="16" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="931">
-          <caret line="1152" column="35" selection-start-line="1152" selection-start-column="35" selection-end-line="1152" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/jre/lib/rt.jar!/java/lang/Comparable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#188#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Comparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-807">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="1" selection-end-line="107" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/lambda/bean/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="82" column="27" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="27" />
-          <folding>
-            <element signature="e#1457#1458#0" expanded="true" />
-            <element signature="e#1486#1487#0" expanded="true" />
-            <element signature="e#1530#1531#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/stream/Stream.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="183" column="61" selection-start-line="183" selection-start-column="55" selection-end-line="183" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Server/jdk8/src.zip!/java/util/Optional.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="132" column="13" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="24" column="6" selection-start-line="16" selection-start-column="2" selection-end-line="24" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="60" selection-start-line="11" selection-start-column="60" selection-end-line="11" selection-end-column="60" />
-          <folding>
-            <element signature="e#211#212#0" expanded="true" />
-            <element signature="e#240#241#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#348#349#0" expanded="true" />
-            <element signature="e#375#376#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#444#445#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#501#502#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/bean/Trader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="45" selection-start-line="10" selection-start-column="45" selection-end-line="10" selection-end-column="45" />
-          <folding>
-            <element signature="e#182#183#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#379#380#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/TestStreamApi3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2182">
-          <caret line="123" column="28" lean-forward="true" selection-start-line="123" selection-start-column="28" selection-end-line="123" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="50" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/stream/practice/TestStreamAPI2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" selection-start-line="15" selection-end-line="141" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="526">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
         </state>
       </provider>
     </entry>

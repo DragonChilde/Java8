@@ -1303,3 +1303,110 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 	}
 
 **并行流与串行流**
+
+并行流就是把一个内容分成多个数据块,并用不同的线程分别处理每个数据块的流。
+
+Java8中将并行进行了优化,我们可以很容易的对数据进行并行操作.Stream API可以声明性地通过parallel()与sequential()在并行流与顺序流之间进行切换
+
+**了解Fork/Join框架**
+
+了解Fork/Join框架:就是在必要的情况下,将一个大任务,进行拆分(fork)成若干个小任务(拆到不可再拆时),再将一个个的小任务运算的结果进行join汇总
+
+![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570526321&di=2b1bcaf42016c48dd9f9187e1b08a3d8&imgtype=jpg&er=1&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1188039%2F201908%2F1188039-20190824105951613-1273425524.png)
+
+**Fork/Join框架与传统线程池的区别**
+
+采用"工作窃取"模式(work-stealing)：当执行新的任务时它可以将其拆分分成更小的任务执行,并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中.
+
+相对于一般的线程池实现,fork/join框架的优势体面在对其中包含的任务的处理方式上.在一般的线程池中，如果一个线程正在搪行的任务由于某些原因无法继续运行,那么该线程会处于等待状态。而在fork/join框架实现中，如果某个子问题由于等待另外一个子问题的完成而无法继续运行.那么处理该子问题的线程会主动寻找其它尚未运行的子问题.这种试减少了线程的等待时间,提高了性能
+
+	/*RecursiveAction没返回值,RecursiveTask有返回值*/
+	public class ForkJoinCalculate extends RecursiveTask<Long> {
+	    private long start;
+	    private long end;
+	
+	    private static final long THRESHOLD = 10000L;   //临界值
+	
+	    public ForkJoinCalculate(long start, long end) {
+	        this.start = start;
+	        this.end = end;
+	    }
+	
+	    @Override
+	    protected Long compute() {
+	        long lenght = end - start;
+	
+	        if (lenght <= THRESHOLD)
+	        {
+	            long sum = 0;
+	            for (long i = start; i <= end; i++) {
+	                sum+=i;
+	            }
+	            return sum;
+	        } else {
+				/*左右拆分计算后再合并*/
+	           long middle =  (start + end) /2;
+	            ForkJoinCalculate left = new ForkJoinCalculate(start, middle);
+	            left.fork();
+	            ForkJoinCalculate right = new ForkJoinCalculate(middle + 1, end);
+	            right.fork();
+	            return left.join()+right.join();
+	        }
+	
+	    }
+	}
+
+
+	    private static void test1()
+	    {
+	        long start = System.currentTimeMillis();
+	
+	        ForkJoinPool forkJoinPool = new ForkJoinPool();
+	        ForkJoinTask<Long> task = new ForkJoinCalculate(0L, 10000000000L);
+	        Long sum = forkJoinPool.invoke(task);
+	        System.out.println(sum);
+	
+	        long end = System.currentTimeMillis();
+	        System.out.println("耗费的时间为: " + (end - start));
+
+			/*
+				-5340232216128654848
+				耗费的时间为: 2627
+			*/
+	    }
+	
+	    private static void test2()
+	    {
+	        long start = System.currentTimeMillis();
+	
+	        long sum = 0L;
+	
+	        for (long i = 0L; i < 10000000000L; i++) {
+	            sum+=i;
+	        }
+	        System.out.println(sum);
+	        long end = System.currentTimeMillis();
+	        System.out.println("耗费的时间为: " + (end - start));
+
+			/*
+				-5340232216128654848
+				耗费的时间为: 3221
+			*/
+	    }
+	
+	    private static void test3()
+	    {
+	        long start = System.currentTimeMillis();
+	
+	        long sum = LongStream.rangeClosed(0L, 10000000000L)
+	                .parallel()
+	                .sum();
+	        System.out.println(sum);
+	
+	        long end = System.currentTimeMillis();
+	        System.out.println("耗费的时间为: " + (end - start));
+			/*
+				-5340232216128654848
+				耗费的时间为: 1665
+			*/
+	    }
