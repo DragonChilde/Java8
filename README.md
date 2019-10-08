@@ -1410,3 +1410,200 @@ Java8中将并行进行了优化,我们可以很容易的对数据进行并行�
 				耗费的时间为: 1665
 			*/
 	    }
+
+# Optional类 #
+
+Optional<T>类(java.util.Optional)是一个容器类，代表一个值存在或不存在,原来用null表示一个值不存在,现在Optional可以更好的表达这个概念.并且可以避免空指针异常
+
+	 /*
+     * Optional 容器类：用于尽量避免空指针异常
+     * 	Optional.of(T t) : 创建一个 Optional 实例
+     * 	Optional.empty() : 创建一个空的 Optional 实例
+     * 	Optional.ofNullable(T t):若 t 不为 null,创建 Optional 实例,否则创建空实例
+     * 	isPresent() : 判断是否包含值
+     * 	orElse(T t) :  如果调用对象包含值，返回该值，否则返回t
+     * 	orElseGet(Supplier s) :如果调用对象包含值，返回该值，否则返回 s 获取的值
+     * 	map(Function f): 如果有值对其处理，并返回处理后的Optional，否则返回 Optional.empty()
+     * 	flatMap(Function mapper):与 map 类似，要求返回值必须是Optional
+     */
+    private static void test1()
+    {
+        /*创建Optional实例的Employee泛型*/
+      /*  Optional<Employee> optional = Optional.of(new Employee());
+        Employee employee = optional.get();
+        System.out.println(employee);*/
+
+        /*传入参数为null，抛出NullPointerException*/
+      /*  Optional<Employee> optional = Optional.of(null);
+        System.out.println(optional.get());*/
+
+      /*抛出NoSuchElementException*/
+      /* Optional<Employee> op = Optional.empty();
+        System.out.println(op.get());*/
+
+      /*
+      public static <T> Optional<T> ofNullable(T value) {
+        return value == null ? empty() : of(value);
+       }
+        */
+        Optional<Employee> op2 = Optional.ofNullable(null);
+        System.out.println(op2.get());
+
+    }
+
+    private static void test2()
+    {
+        /*创建一个空的Employee对象*/
+        Optional<Employee> optional = Optional.ofNullable(new Employee());
+        /*判断是否有值*/
+        if(optional.isPresent()) {
+            System.out.println(optional.get());
+        }
+
+        /*创建一个空对象*/
+        Optional<Employee> op = Optional.empty();
+        /*如果Optional没值则取新值*/
+        Employee employee = op.orElse(new Employee("李四"));
+        System.out.println(employee);
+
+        /*参数是函数式接口Supplier的供给型接口:接口不接受返回值,可以在里面创建任意对象*/
+        Employee employee2 = op.orElseGet(() -> new Employee("张三"));
+        System.out.println(employee2);
+    }
+
+    private static void test3()
+    {
+
+        Optional<Employee> optional = Optional.of(new Employee(101, "张三", 18, 9999.99));
+
+        /*参数是函数式接口Function（类名 :: 实例方法名）*/
+        Optional<String> op = optional.map(Employee::getName);
+        System.out.println(op.get());
+
+        /*参数是函数式接口Function,但要求使用Optional进行包装*/
+        Optional<Integer> op2 = optional.flatMap(e -> Optional.of(e.getId()));
+        System.out.println(op2.get());
+    }
+
+举例
+
+ 	/*用以前的方法需要在方法里多重判断*/
+    private static void test4()
+    {
+        Man man = new Man();
+        String teacherName = getTeacherName(man);
+        System.out.println(teacherName);
+
+    }
+
+    private static String getTeacherName(Man man)
+    {
+        if (man != null)
+        {
+            Teacher teacher = man.getTeacher();
+            if (teacher != null)
+            {
+                return teacher.getName();
+            }
+        }
+        return "苍老师";
+    }
+
+	/*使用Optional进行包装传值,如果为null值则返回定义默认的*/
+    private static void test5()
+    {
+        Optional<Teacher> optionalTeacher = Optional.ofNullable(new Teacher("三上老师"));
+        Optional<NewMan> optionalNewMan = Optional.ofNullable(new NewMan(optionalTeacher));
+        String teacherName = getTeacherName2(optionalNewMan);
+        System.out.println(teacherName);
+    }
+
+    private static String getTeacherName2(Optional<NewMan> man){
+        return man.orElse(new NewMan())
+                .getTeacher()
+                .orElse(new Teacher("苍老师"))
+                .getName();
+    }
+
+# 接口中的默认方法与静态方法 #
+
+Java8中允许接口中包含具有具体实现的方法,该方法称为"默认方法"，默认方法使用default关键字修饰
+
+**接口中的默认方法**
+
+接口默认方法的"类优先"原则
+
+若一个接口定义了一个默认方法,而另外一个父类或接口中又定义了一个同名的方法时
+
+- 选择父类中的方法.如果一个父类提供了具体的实现,那么接口中具有相同名称和参数的默认方法会被忽略
+- 接口冲突.如果一个父接口提供一个默认方法,而另一个接口也提供了一个具有相同名称和参数列表的方法(不管方法是否是默认方法)，那么必须覆盖该方法来解决冲突
+
+		/**在接口里定义default默认方法**/
+		public interface MyInterface {
+		    default String getName()
+		    {
+		        return "this is myinterface";
+		    }
+		
+		/**Java8中,接口中允许添加静态方法**/
+		    public static void show()
+		    {
+		        System.out.println("this is static method in interface");
+		    }
+		
+		}
+
+		/**定义另外一个接口和默认方法**/
+		public interface MyFun {
+		    default String getName()
+		    {
+		        return "this is myfun";
+		    }
+		}
+
+		/**定义一个父类**/
+		public class MyClass {
+		    public String getName()
+		    {
+		        return "this is myclass";
+		    }
+		}
+
+		/**接口默认方法的"类优先"原则,子类继承的父类已经实现了接口里的方法,会优先使用父类的实现方法**/
+		public class SubClass extends MyClass implements MyFun,MyInterface{
+		}
+
+		public class TestDefaultInterface {
+		    public static void main(String[] args) {
+		        SubClass subClass = new SubClass();
+		        System.out.println(subClass.getName());
+				
+				/**this is myclass**/
+		
+				/**接口里的静态方法也可以直接调用**/
+			   MyInterface.show();
+		    }
+		}
+
+
+		/**如果实现多个接口都有同一个默认方法,使用super选择优先使用**/
+		public class SubClass /*extends MyClass*/ implements MyFun,MyInterface{
+		    @Override
+		    public String getName() {
+		        return MyInterface.super.getName();
+		    }
+		}
+
+
+
+# 新时间日期API #
+
+LocalDate、LocalTime、LocalDateTime类的实例是不可变的对象,分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息.也不包含与时区相关的信息
+
+	now()	静态方法,根据当前时间创建对象
+	of()	静态方法,根据指宝日期/时间创建对象
+	plusDays,plusWeeks,plusMonths,plusYears	向当前LocalDate对象添加几天、几周、几个月、几年
+	minusDays,minusWeeks,minusMonths,minusYears	从当前LocalDate对象减去几天、几周、几个月、几年
+	plus,minus	添加或减少一个Duration或Period
+	withDayOfMonth,withDayOfYear,withMonth,withYear	将月份天数、年份天数、月份、年份改为指定的值并返回新的LocalDate对象
+
