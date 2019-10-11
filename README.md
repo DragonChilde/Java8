@@ -1598,12 +1598,346 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
 
 # 新时间日期API #
 
-LocalDate、LocalTime、LocalDateTime类的实例是不可变的对象,分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息.也不包含与时区相关的信息
+		/**旧的时间日期API会有线程安全问题，执行会报错**/
+	   public static void main(String[] args) throws Exception{
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+	
+	        Callable<Date> callable = new Callable<Date>() {
+	            @Override
+	            public Date call() throws Exception {
+	                return simpleDateFormat.parse("20191009");
+	            }
+	        };
+	
+	        ExecutorService executorService = Executors.newFixedThreadPool(10);
+	        List<Future<Date>> results = new ArrayList<>();
+	        for (int i = 0; i < 10; i++) {
+	            results.add(executorService.submit(callable));
+	        }
+	
+	        for (Future<Date> future:results)
+	        {
+	            System.out.println(future.get());
+	        }
+	        executorService.shutdown();
+	    }
 
-	now()	静态方法,根据当前时间创建对象
-	of()	静态方法,根据指宝日期/时间创建对象
-	plusDays,plusWeeks,plusMonths,plusYears	向当前LocalDate对象添加几天、几周、几个月、几年
-	minusDays,minusWeeks,minusMonths,minusYears	从当前LocalDate对象减去几天、几周、几个月、几年
-	plus,minus	添加或减少一个Duration或Period
-	withDayOfMonth,withDayOfYear,withMonth,withYear	将月份天数、年份天数、月份、年份改为指定的值并返回新的LocalDate对象
+		  //旧版本解决多线程安全问题
+	   public static void main(String[] args) throws Exception {
+	
+	       Callable<Date> callable = new Callable<Date>() {
+	           @Override
+	           public Date call() throws Exception {
+	               return DateFormatThreadLocal.convert("20191009");
+	           }
+	       };
+	       ExecutorService executorService = Executors.newFixedThreadPool(10);
+	       List<Future<Date>> results = new ArrayList<>();
+	       for (int i = 0; i < 10; i++) {
+	           results.add(executorService.submit(callable));
+	       }
+	
+	       for (Future<Date> future:results)
+	       {
+	           System.out.println(future.get());
+	       }
+	       executorService.shutdown();
+	
+	   }
 
+		/**关于ThreadLocal解决线程安全问题不在这里讨论,另行查看JUC**/
+		public class DateFormatThreadLocal {
+
+		    private static final ThreadLocal<DateFormat> df = new ThreadLocal<DateFormat>(){
+		        @Override
+		        protected DateFormat initialValue() {
+		            return new SimpleDateFormat("yyyyMMdd");
+		        }
+		    };
+		
+		
+		    public static final Date convert(String source) throws Exception
+		    {
+		        return df.get().parse(source);
+		    }
+		}
+
+			/**JAVA8解决办法**/
+		 public static void main(String[] args) throws Exception {
+	        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+	        Callable<LocalDate> callable = new Callable<LocalDate>() {
+	            @Override
+	            public LocalDate call() throws Exception {
+	                return LocalDate.parse("20191009",dateTimeFormatter);
+	            }
+	        };
+	
+	        ExecutorService executorService = Executors.newFixedThreadPool(10);
+	        List<Future<LocalDate>> results = new ArrayList<>();
+	        for (int i = 0; i < 10; i++) {
+	            results.add(executorService.submit(callable));
+	        }
+	
+	        for (Future<LocalDate> future:results)
+	        {
+	            System.out.println(future.get());
+	        }
+	        executorService.shutdown();
+	    }
+
+**LocalDate**、**LocalTime**、**LocalDateTime**类的实例是不可变的对象,分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息.也不包含与时区相关的信息
+
+	now()	//静态方法,根据当前时间创建对象
+	of()	//静态方法,根据指宝日期/时间创建对象
+	plusDays,plusWeeks,plusMonths,plusYears		//向当前LocalDate对象添加几天、几周、几个月、几年
+	minusDays,minusWeeks,minusMonths,minusYears		//从当前LocalDate对象减去几天、几周、几个月、几年
+	plus,minus		//添加或减少一个Duration或Period
+	withDayOfMonth,withDayOfYear,withMonth,withYear		//将月份天数、年份天数、月份、年份改为指定的值并返回新的LocalDate对象
+	getDayOfMonth		//获得月份天数(1-31)
+	getDayOfYear		//获得年份天数(1-366)
+	getDayOfWeek		//获得星期几(返回一个DayOfWeek枚举值)
+	getMonth			//获得月份,返回一个Month枚举值
+	getMonthValue		//获得月份(1-12)
+	getYear				//获得年份
+	until				//获得两个日期之间的Period对象,或者指定ChronUnits的数字
+	isBefore,isAfter	//比较两个LocalDate
+	isLeapYear			//判断是否闰年
+
+	/**LocalDate,LocalTime,LocalDateTime之间的部分方法共有**/
+	 private static void test1()
+    {
+        LocalDate now = LocalDate.now();
+        System.out.println(now);	//2019-10-09
+
+        LocalDateTime localDateTime = LocalDateTime.of(2019, 10, 9, 14, 31, 00);
+        System.out.println(localDateTime);		//2019-10-09T14:31
+
+        LocalDateTime localDateTime2 = localDateTime.plusYears(1);
+        System.out.println(localDateTime2);		//2020-10-09T14:31
+
+        LocalDateTime localDateTime3 = localDateTime.minusMonths(2);
+        System.out.println(localDateTime3);		//2019-08-09T14:31
+
+        System.out.println(localDateTime.getYear());	//2019
+        System.out.println(localDateTime.getMonthValue());	//10
+        System.out.println(localDateTime.getDayOfMonth());	//9
+        System.out.println(localDateTime.getHour());		//14
+        System.out.println(localDateTime.getMinute());		//31
+        System.out.println(localDateTime.getSecond());		//0
+    }
+
+**Instant时间戳**
+
+用于"时间戳"的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算
+
+	 private static void test2()
+    {
+        Instant instant = Instant.now();
+        System.out.println(instant);	//2019-10-09T06:44:05.737Z
+
+		/**时区加8小时**/
+        OffsetDateTime offsetDateTime = instant.atOffset(ZoneOffset.ofHours(8));
+        System.out.println(offsetDateTime);	//2019-10-09T14:44:05.737+08:00
+
+		/**打印当前纳秒**/
+        System.out.println(instant.getNano());	//737000000
+
+		/**从1970-01-01 00:00:00加5秒**/
+        Instant instant2 = Instant.ofEpochSecond(5);
+        System.out.println(instant2);			//1970-01-01T00:00:05Z
+    }
+
+**Duration和Period**
+
+- Duration:用于计算两个"时间"间隔
+- Period:用于计算两个"日期"间隔
+
+	    private static void test3()
+	    {
+	        Instant instant = Instant.now();
+	
+	        try {
+	            Thread.sleep(1000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	
+	        Instant instant2 = Instant.now();
+	
+	        Duration between = Duration.between(instant, instant2);
+	        System.out.println(between);		//PT1S
+	        System.out.println(between.getSeconds());	//1
+	
+	        System.out.println("===============");
+	
+	        LocalDate localDate = LocalDate.of(2015, 10, 7);
+	        LocalDate now = LocalDate.now();
+	        Period period = Period.between(localDate, now);
+	        System.out.println(period);		//P4Y2D
+	        System.out.println(period.getYears());		//4
+	        System.out.println(period.getMonths());		//0
+	        System.out.println(period.getDays());		//2
+	
+	    }
+
+**日期的操纵**
+
+- TemporalAdjuster:时间校正器,有时我们可能需要获取例如:将日期调整到"下个周日"等 操作
+- TemporalAdjusters:该类通过静态方法提供了大量的常用TemporalAdjuster的实现。
+
+		/**TemporalAdjusters是实现TemporalAdjuster的工具类**/
+	    private static void test4()
+	    {
+	        LocalDateTime localDateTime = LocalDateTime.now();
+	        System.out.println(localDateTime);		//2019-10-09T16:04:11.772
+	
+	        LocalDateTime localDateTime2 = localDateTime.withDayOfMonth(10);
+	        System.out.println(localDateTime2);		//2019-10-10T16:04:11.772
+	
+	        LocalDateTime localDateTime3 = localDateTime.with(TemporalAdjusters.next(DayOfWeek.SUNDAY));
+	        System.out.println(localDateTime3);		//2019-10-13T16:04:11.772
+	
+			/**TemporalAdjuster是函数式接口，因此可以自定义方法**/
+	        //自定义：下一个工作日
+	        LocalDateTime localDateTime4 = localDateTime.with(l -> {
+	            LocalDateTime dateTime = (LocalDateTime) l;
+	            DayOfWeek dayOfWeek = dateTime.getDayOfWeek();
+	            if (dayOfWeek.equals(DayOfWeek.FRIDAY)) {
+	                return dateTime.plusDays(3);
+	            } else if (dayOfWeek.equals(DayOfWeek.SATURDAY)) {
+	                return dateTime.plusDays(2);
+	            } else {
+	                return dateTime.plusDays(1);
+	            }
+	        });
+	
+	        System.out.println(localDateTime4);		//2019-10-10T16:04:11.772
+	    }
+
+**解析与格式化**
+
+java.time.format.DateTimeFormatter类:该类提供了三种格式化方法:
+
+- 预定义的标准格式
+- 语言环境相关的格式
+- 自定义的格式
+
+		 private static void test5()
+	    {
+	        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE;    //默认格式
+	
+	        LocalDateTime localDateTime = LocalDateTime.now();
+	        String date = localDateTime.format(dateTimeFormatter);
+	        System.out.println(date);		//2019-10-09
+	
+	        System.out.println("==============");
+	
+	        DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ofPattern("yyyy年MM月dd日 HH:mm:ss");
+	        String date2 = localDateTime.format(dateTimeFormatter2);
+	        System.out.println(date2);		//2019年10月09日 17:00:25
+	
+	        System.out.println("==============");
+	
+			/**把格式化的日期进行解析**/
+	        LocalDateTime localDateTime2 = localDateTime.parse(date2, dateTimeFormatter2);
+	        System.out.println(localDateTime2);		//2019-10-09T17:00:25
+	
+	
+	    }
+
+**时区的处理**
+
+Java8中加入了对时区的支持,带时区的时间分别为:ZonedDate、ZonedTime、ZonedDateTime其中每个时区都对应着ID,地区ID都为"{区域}/{城市}"的格式例如:Asia/Shanghai等
+
+- ZoneId:该类中包含了所有的时区信息
+- getAvailableZonelds():可以获取所有时区信息
+- of(id):用指定的时区信息获取ZoneId对象
+
+与传统日期处理的转换
+
+		//类							To遗留类					From遗留类
+	java.time.Instant			Date.from(instant)			date.toInstant()
+	java.util.Date
+	java.time.Instant			Timestamp.from(instant)		timestamp.toInstant()
+	java.sql.Timestamp
+	java.time.ZonedDateTime		GregorianCalendar.from(zonedDateTime)	cal.toZonedDateTime()
+	java.util.GregorianCalendar
+	java.time.LocalDate			Date.valueOf(localDate)		date.toLocalDate()
+	java.sql.Time
+	java.time.LocalTime			Date.valueOf(localDate)		date.toLocalTime()
+	java.sql.Time
+	java.time.LocalDateTime		Timestamp.valueOf(localDateTime)		timestamp.toLocalDateTime()
+	java.sql.Timestamp
+	java.time.ZoneId			Timezone.getTimeZone(id)		timeZone.toZoneId()
+	java.util.TimeZone
+	java.time.format.DateTimeFormatter		formatter.toFormat()	无
+	java.text.DateFormatwithDayOfMonth
+
+	private static void test6()
+    {
+		/**把支持的所有时区打印**/
+        Set<String> set = ZoneId.getAvailableZoneIds();
+        set.forEach(System.out::println);
+    }
+
+	/**指定时区获取日期时间**/
+  	private static void test7()
+    {
+        LocalDateTime now = LocalDateTime.now(ZoneId.of("Asia/Shanghai"));
+        System.out.println(now);		//2019-10-09T17:06:49.740
+
+        LocalDateTime now2 = LocalDateTime.now(ZoneId.of("US/Pacific"));
+        System.out.println(now2);		//2019-10-09T02:06:49.742
+    }
+
+
+# 重复注解与类型注解 #
+
+Java8对注解处理提供了两点改进:可重复的注解及可用于类型的注解。
+
+	/**@Repeatable可定义多个注解，没有这个注释的话定义多个注解会报错**/
+	@Repeatable(MyAnnotations.class)
+	/**TYPE_PARAMETER可用于类型的注解**/
+	@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, TYPE_PARAMETER})
+	@Retention(RetentionPolicy.RUNTIME)
+	public @interface MyAnnotation {
+	    String value() default "test";
+	}
+
+	/**定义一个容器类，把多个注解装进数组**/
+	@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE})
+	@Retention(RetentionPolicy.RUNTIME)
+	public @interface MyAnnotations {
+	    MyAnnotation[] value();
+	}
+
+	public class TestAnnotation {
+		/**为防止参数为null值,类型注解在实际应用中的作用(可通过配置第三方插件Checker Framework在编译期进行检测)**/
+	    private  /*@NotNull*/ Employee employee = null;
+	    
+	    public static void main(String[] args) throws Exception{
+			/**使用反射获取注解内容**/
+	        Class<TestAnnotation> testAnnotationClass = TestAnnotation.class;
+	        Method method = testAnnotationClass.getMethod("show");
+	
+	        MyAnnotation[] annotationsByType = method.getAnnotationsByType(MyAnnotation.class);
+	
+	       for (MyAnnotation s:annotationsByType)
+	        {
+	            System.out.println(s.value());
+	        }
+	
+	    }
+	
+		/**要使用重复注解必须定义一个新的容器类(在Java8之前使用会报错)**/
+	    @MyAnnotation("hello")
+	    @MyAnnotation("world")
+	    public void show()	
+	    {
+	    }
+
+		public static void get(@MyAnnotation("abc") String str)//通过新增的TYPE_PARAMETER类型，可通过@MyAnnotation("abc")来对参数进行标注
+	    {
+	        System.out.println(str);
+	    }
+	}
