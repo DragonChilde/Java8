@@ -1,10 +1,12 @@
+<a href="http://120.77.237.175:9080/photos/java8/">JAVA8</a>
+
 # Lambda表达式 #
 
-**为什么使用Lambda表达式**
+## 为什么使用Lambda表达式 ##
 
 Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可以传递的代码(将代码像数据一样进行传递)。可以写出更简洁、更灵活的代码。作为一种更紧凑的代码风格.使Java的语言表达能力得到了提升
 
-下面代码进行对比
+## 代码对比 ##
 
 	public class TestLamabda1 {
 	
@@ -40,9 +42,9 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	    }	
 	}
 
-对比可以看出原来的匿名内部类所需的代码量比较多
+**对比可以看出原来的匿名内部类所需的代码量比较多**
 
-再举个例子:新增一个Employee类根据不同需求取出结果
+## 新增一个Employee类根据不同需求取出结果 ##
 
 	public class TestLambda2 {
 	   static List<Employee> emps = Arrays.asList(
@@ -85,9 +87,9 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	    }
 	}
 
-如果每次根据不同需求新增方法过滤不同的结果，其代码的重复量比较多,实际的就只是判断的方式不同
+**如果每次根据不同需求新增方法过滤不同的结果，其代码的重复量比较多,实际的就只是判断的方式不同**
 
-- 优化方式一：策略设计模式
+### 优化方式一：策略设计模式 ###
 
 		//定义接口
 		public interface MyPredicate<T> {
@@ -129,7 +131,7 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	        return list;
 	    }
 
-- 优化方式二:匿名内部类
+### 优化方式二:匿名内部类 ###
 
 		//根据上面的方式只定义接口和方法，具体实现在内部类里实现
 		private static List<Employee> filterEmployee2(List<Employee> emps)
@@ -149,7 +151,7 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	        return list;
 	    }
 
-- 优化方式三:Lambda 表达式
+### 优化方式三:Lambda 表达式 ###
 
 		//根据优化一里定义的接口和方法，用Lambda 表达式
 	    private static void filterEmployee3(List<Employee> emps)
@@ -161,7 +163,7 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	        employees2.forEach(System.out::println);
 	    }
 
-- 优化方式四：Stream API
+### 优化方式四：Stream API ###
 
 	    private static void filterEmployee4(List<Employee> emps){
 	        emps.stream().filter((e)->e.getSalary()>5000).forEach(System.out::println);
@@ -169,14 +171,16 @@ Lambda是一个匿名函数,我们可以把Lambda表达式理解为是一段可�
 	        emps.stream().filter((e)->e.getAge()<35).forEach(System.out::println);
 	    }
 
-Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**" 该操作符称为箭头操作符或 Lambda 操作符
+## Lambda表达式的基础语法 ##
+
+**Java8中引入了一个新的操作符 "**->**" 该操作符称为箭头操作符或 Lambda 操作符**
 
 箭头操作符将 Lambda 表达式拆分成两部分：
  
 - 左侧：Lambda 表达式的参数列表
 - 右侧：Lambda 表达式中所需执行的功能， 即 Lambda 体
 
-**语法格式一：无参数，无返回值() -> System.out.println("Hello Lambda!");**
+### 语法格式一：无参数，无返回值() -> System.out.println("Hello Lambda!"); ###
 
 	/**Lambda表达式相关于实现接口类的方法**/
 	private static void test1()
@@ -199,7 +203,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
     }
 
 
-**语法格式二：有一个参数，并且无返回值(x) -> System.out.println(x)**
+### 语法格式二：有一个参数，并且无返回值(x) -> System.out.println(x) ###
 
 	 private static void test2()
     {
@@ -210,7 +214,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
     }
 
 
-**语法格式三：若只有一个参数，小括号可以省略不写x -> System.out.println(x)**
+### 语法格式三：若只有一个参数，小括号可以省略不写x -> System.out.println(x) ###
 
 	  private static void test2()
     {
@@ -219,7 +223,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
 
     }
 
-**语法格式四：有两个以上的参数，有返回值，并且 Lambda 体中有多条语句**
+### 语法格式四：有两个以上的参数，有返回值，并且 Lambda 体中有多条语句 ###
 
 	 private static void test3()
     {
@@ -229,7 +233,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
         };
     }
 
-**语法格式五：若 Lambda 体中只有一条语句， return 和 大括号都可以省略不写**
+### 语法格式五：若 Lambda 体中只有一条语句， return 和 大括号都可以省略不写 ###
 
 	  private static void test4()
     {
@@ -237,7 +241,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
 
     }
 
-**语法格式六：Lambda 表达式的参数列表的数据类型可以省略不写，因为JVM编译器通过上下文推断出，数据类型，即“类型推断”**
+### 语法格式六：Lambda 表达式的参数列表的数据类型可以省略不写，因为JVM编译器通过上下文推断出，数据类型，即“类型推断” ###
 
 	  private static void test4()
     {
@@ -261,7 +265,7 @@ Lambda表达式的基础语法：Java8中引入了一个新的操作符 "**->**"
 
     }
 
-类型推断:上述Lambda表达式中的参数类型都是由编译器推断得出的.Lambda表达式中无需指定类型，程序依然可以编译,这是因为javac根据程序的上下文,在后台推断出了参数的类型.Lambda表达式的类型依赖于上下文环境，是由编译器推断出来的。这就是所谓的"类型推断"
+**类型推断:上述Lambda表达式中的参数类型都是由编译器推断得出的.Lambda表达式中无需指定类型，程序依然可以编译,这是因为javac根据程序的上下文,在后台推断出了参数的类型.Lambda表达式的类型依赖于上下文环境，是由编译器推断出来的。这就是所谓的"类型推断"**
 
 - 上联：左右遇一括号省
 - 下联：左侧推断类型省
@@ -271,7 +275,7 @@ Lambda 表达式需要“函数式接口”的支持
 
 # 函数式接口 #
 
-什么是函数式接口
+## 什么是函数式接口 ##
 
 - 只包含一个抽象方法的接口,称为**函数式接口**
 - 你可以通过Lambda表达式来创建该接口的对象(若Lambda表达式抛出一个受检异常,那么该异常需要在目标接口的抽象方法上进行声明)
@@ -288,23 +292,23 @@ Lambda 表达式需要“函数式接口”的支持
 	   //public Integer getNum(Integer num);
 	}
 
-需求：对一个数进行运算
+1. 需求1：对一个数进行运算
 
-	 private static void test6()
-    {
-        Integer num = operation(100, x -> x * x);
-        System.out.println(num);
+		 private static void test6()
+	    {
+	        Integer num = operation(100, x -> x * x);
+	        System.out.println(num);
+	
+	        System.out.println(operation(100, x -> 200 + x));
+	
+	    }
+	
+	    private static Integer operation(Integer num, MyFun myFun)
+	    {
+	        return myFun.getValue(num);
+	    }
 
-        System.out.println(operation(100, x -> 200 + x));
-
-    }
-
-    private static Integer operation(Integer num, MyFun myFun)
-    {
-        return myFun.getValue(num);
-    }
-
--  调用Collections.sort()方法,通过定制排序比较两个Employee(先按年龄比,年龄相同按姓名比)，使用Lamabda作为参数传递
+	调用Collections.sort()方法,通过定制排序比较两个Employee(先按年龄比,年龄相同按姓名比)，使用Lamabda作为参数传递
 
 		static List<Employee> emps = Arrays.asList(
 	            new Employee(101, "张三", 18, 9999.99),
@@ -335,7 +339,7 @@ Lambda 表达式需要“函数式接口”的支持
 		Employee{id=105, name='田七', age=38, salary=5555.55}
 		Employee{id=102, name='李四', age=59, salary=6666.66}
 
-2. 
+2. 需求2
 	1. 声明函数式接口,接口中声明抽象方法，public String getValue(String str);
 	2. 声明类TestLamabda,类中编写方法使用接口作为参数,将一个字符串转成大写,并作为方法的返回值.
 	3. 再将一个字符串的第2个和第4个索引位置进行截取子串
@@ -359,7 +363,7 @@ Lambda 表达式需要“函数式接口”的支持
 			        return myFunction.getValue(str);
 			    }
 
-3. 
+3. 需求3
 	1. 声明一个带两个泛型的函数式接口,泛型类型为<T,R> T为参数,R为返回值
 	2. 接口中声明对应抽象方法
 	3. 在TestLambda类中声明方法,使用接口作为参数,计算两个long型参数的和
@@ -382,9 +386,9 @@ Lambda 表达式需要“函数式接口”的支持
 
 **作为参数传递Lambda表达式：为了将Lambda表达式作为参数传递,接收Lambda表达式的参数类型必须是与该Lambda表达式兼容的函数式接口的类型**
 
-**Java8 内置的四大核心函数式接口**
+## Java8 内置的四大核心函数式接口 ##
 
-- **Consumer<T> : 消费型接口 void accept(T t) 对类型为T的对象应用操作**
+### Consumer<T> : 消费型接口 void accept(T t) 对类型为T的对象应用操作 ###
 
 		 private static void test1()
 	    {
@@ -396,7 +400,7 @@ Lambda 表达式需要“函数式接口”的支持
 	        consumer.accept(str);
 	    }
 
-- **Supplier<T> : 供给型接口 T get() 返回类型为T的对象**
+### Supplier<T> : 供给型接口 T get() 返回类型为T的对象 ###
 
 		 private static void test2()
 	    {
@@ -415,7 +419,7 @@ Lambda 表达式需要“函数式接口”的支持
 	
 	    }
 
-- **Function<T, R> : 函数型接口 R apply(T t) 对类型为T的对象应用操作,并返回结果.结果是R类型的对象**
+### Function<T, R> : 函数型接口 R apply(T t) 对类型为T的对象应用操作,并返回结果.结果是R类型的对象 ###
 
 	 	 private static void test3()
 	    {
@@ -431,7 +435,7 @@ Lambda 表达式需要“函数式接口”的支持
 	        return function.apply(str);
 	    }
 
-- **Predicate<T> : 断言型接口 boolean test(T t) 确定类型为T的对象是否满足某约束,并返回boolean值**
+### Predicate<T> : 断言型接口 boolean test(T t) 确定类型为T的对象是否满足某约束,并返回boolean值 ###
 
 	    private static void test4()
 	    {
@@ -453,7 +457,7 @@ Lambda 表达式需要“函数式接口”的支持
 	
 	    }
 
-其它接口
+### 其它接口 ###
 	
 	BiFunction<T,U,R> 	params:T,U	return：R	//对类型为T,U参数应用操作,返回R类型的结果.包含方法为R apply<T t,U u>
 
@@ -475,7 +479,9 @@ Lambda 表达式需要“函数式接口”的支持
 
 方法引用:使用操作符"**::**"将方法名和对象 类的名字分隔开来
 
-一、 方法引用：若 Lambda 体中的功能，已经有方法提供了实现，可以使用方法引用 （可以将方法引用理解为 Lambda 表达式的另外一种表现形式）
+## 方法引用 ##
+
+若 Lambda 体中的功能，已经有方法提供了实现，可以使用方法引用 （可以将方法引用理解为 Lambda 表达式的另外一种表现形式）
 
 - **对象的引用 :: 实例方法名**
 
@@ -580,7 +586,9 @@ Lambda 表达式需要“函数式接口”的支持
 1. **方法引用所引用的方法的参数列表与返回值类型，需要与函数式接口中抽象方法的参数列表和返回值类型保持一致！**
 2. **若Lambda 的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，格式： ClassName::MethodName**
 
-二、构造器引用 :构造器的参数列表，需要与函数式接口中参数列表保持一致！
+## 构造器引用 ##
+
+构造器的参数列表，需要与函数式接口中参数列表保持一致！
 
 格式:**ClassName::new**
 
@@ -613,7 +621,7 @@ Lambda 表达式需要“函数式接口”的支持
 	    }
 
 
-三、 **数组引用 type[]::new**
+## 数组引用 type[]::new ##
 
 - 类型[] :: new;
 
@@ -637,7 +645,7 @@ Java8中有两大最为重要的改变.第一个是Lambda;另外一个则是Stre
 
 Stream是Java8中处理集合的关键抽象概念,它可以指定你希望对集合进行的操作,可以执行非常复杂的查找、过滤和映射数据等操作.使用Stream API对集合数据进行操作,就类拟于使用SQL执行的数据库查询.也可以使用Stream API来并行执行操作.简而言之,Stream API提供了一种高效且易于使用的处理数据的方式
 
-什么是Stream?流(Stream)到底是什么 
+## 什么是Stream?流(Stream)到底是什么  ##
 
 是数据渠道,用于操作数据源(集合、数组等)所生成的元素序列.“**集合讲的是数据，流讲的是计算**”
 
@@ -647,13 +655,13 @@ Stream是Java8中处理集合的关键抽象概念,它可以指定你希望对�
 2. Stream不会改变源对象.相反，他们会返回一个持有结果的新Stream
 3. Stream操作是延迟执行的.这意味着它们会等到需要结果的时候才执行
 
-**Stream API 的操作步骤**
+## Stream API 的操作步骤 ##
 
 1. **创建 Stream**：一个数据源(如：集合、数组)，获取一个流
 2. **中间操作**:一个中间操作链,对数据源的数据进行处理
 3. **终止操作(终端操作)**:一个终止操作,执行中间操作链,并产生结果
 
-**创建Stream有以下几种方式**
+## 创建Stream有以下几种方式 ##
 
 1. Java8中的Collection接中被扩展,提供了两个获取流的方法:
 
@@ -678,7 +686,7 @@ Stream是Java8中处理集合的关键抽象概念,它可以指定你希望对�
 		//生成
 		public static<T> Stream<T> generate(Supplier<T> s)
 
-实际操作
+### 实际操作 ###
 
 	private static void test1()
     {
@@ -703,11 +711,11 @@ Stream是Java8中处理集合的关键抽象概念,它可以指定你希望对�
         doubleStream.forEach(System.out::println);
     }
 
-**Stream的中间操作**
+## Stream的中间操作 ##
 
 多个中间操作可以连接起来形成一个流水线，除非流水线上触发终止操作,否则中间操作不会执行任何的处理！而在终止操作时一次性全部处理,称为"惰性求值"
 
-- **筛选与切片**
+### 筛选与切片 ###
 
 		filter(Predicate p)		//接收Lambda,从流中排除某些元素
 		distinct()				//筛选，通过流所生成元素的hashCode()和equals()去除重复元素
@@ -781,13 +789,13 @@ Stream是Java8中处理集合的关键抽象概念,它可以指定你希望对�
 	Employee{id=104, name='赵六', age=8, salary=7777.77}
 	*/
 
-- **映射**
+### 映射 ###
 
-		map(Function f)		//接收一个函数作为参数,该函数会被应用到每个元素上,并将其映射成一个新的元素
-		mapToDouble(ToDoubleFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上,产生一个新的DoubleStream
-		mapToInt(ToIntFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上,产生一个新的IntStream
-		mapToLong(ToLongFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上，产生一个新的LongStream
-		flatMap(Function f)		//接收一个函数作为参数,将流中的每个值都换成另一个流,然后把所有流连接成一个流
+	map(Function f)		//接收一个函数作为参数,该函数会被应用到每个元素上,并将其映射成一个新的元素
+	mapToDouble(ToDoubleFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上,产生一个新的DoubleStream
+	mapToInt(ToIntFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上,产生一个新的IntStream
+	mapToLong(ToLongFunction f)		//接收一个函数作为参数,该函数会被应用到每个元素上，产生一个新的LongStream
+	flatMap(Function f)		//接收一个函数作为参数,将流中的每个值都换成另一个流,然后把所有流连接成一个流
 
 例:
 
@@ -890,7 +898,7 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 		*/
     }
 
-- **排序**
+### 排序 ###
 
 		sorted()	//产生一个新流，其中按自然顺序排序
 		sorted(Comparator comp)		//产生一个新流,其中按比较器顺序排序
@@ -915,11 +923,11 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 	        }).forEach(System.out::println);
 	    }
 
-**Stream终止操作**
+### Stream终止操作 ###
 
 终端操作会从流的流水线生成结果.其结果可以是任何不是流的值,例如:List、Integer,甚至是void
 
-- 查找与匹配
+#### 查找与匹配 ####
 
 		allMatch(Predicate p)		//检查是否匹配所有元素
 		anyMatch(Predicate p)		//检查是否至少匹配一个元素
@@ -1008,7 +1016,7 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 		Optional[Employee{id=103, name='王五', age=28, salary=3333.33, status=VOCATION}]
 		*/
 
-- 归约
+#### 归约 ####
 
 		reduce(T iden, BinaryOperator b)		//可以将流中元素反复结合起来,得到一个值.返回T
 		reduce(BinaryOperator b)			//可以将流中元素反复结合起来,得到一个值.返回Optional<T>
@@ -1035,7 +1043,7 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 		*/
 
 
-- 收集
+#### 收集 ####
 
 		collect(Collector c)		//将流转换为其他形式.接收一个Collector接口的实现,用于给Stream中元素做汇总的方法
 		
@@ -1155,7 +1163,7 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 		collectiogAndThen		转换函数返回的类型		//包裹另一个收集器,对其结果转换函数
 
 
-举例1:	
+#### 举例1 ####
 
 	/*给定一个数字列表，如何返回一个由每个数的平方构成的列表呢？
 		，给定【1，2，3，4，5】， 应该返回【1，4，9，16，25】。*/
@@ -1172,7 +1180,7 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
         System.out.println(count);
     }
 
-举例2:
+#### 举例2 ####
 
 	public class TestStreamAPI2 {
 	
@@ -1302,19 +1310,19 @@ map()是把流中的各个集合元素传到新的流中,而flatMap()是把流�
 	    }
 	}
 
-**并行流与串行流**
+## 并行流与串行流 ##
 
 并行流就是把一个内容分成多个数据块,并用不同的线程分别处理每个数据块的流。
 
 Java8中将并行进行了优化,我们可以很容易的对数据进行并行操作.Stream API可以声明性地通过parallel()与sequential()在并行流与顺序流之间进行切换
 
-**了解Fork/Join框架**
+## Fork/Join框架 ##
 
 了解Fork/Join框架:就是在必要的情况下,将一个大任务,进行拆分(fork)成若干个小任务(拆到不可再拆时),再将一个个的小任务运算的结果进行join汇总
 
-![](https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570526321&di=2b1bcaf42016c48dd9f9187e1b08a3d8&imgtype=jpg&er=1&src=http%3A%2F%2Fimg2018.cnblogs.com%2Fblog%2F1188039%2F201908%2F1188039-20190824105951613-1273425524.png)
+![](http://120.77.237.175:9080/photos/java8/01.png)
 
-**Fork/Join框架与传统线程池的区别**
+### Fork/Join框架与传统线程池的区别 ###
 
 采用"工作窃取"模式(work-stealing)：当执行新的任务时它可以将其拆分分成更小的任务执行,并将小任务加到线程队列中，然后再从一个随机线程的队列中偷一个并把它放在自己的队列中.
 
