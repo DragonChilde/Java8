@@ -1493,7 +1493,7 @@ Optional<T>类(java.util.Optional)是一个容器类，代表一个值存在或�
         System.out.println(op2.get());
     }
 
-举例
+## 举例 ##
 
  	/*用以前的方法需要在方法里多重判断*/
     private static void test4()
@@ -1537,7 +1537,7 @@ Optional<T>类(java.util.Optional)是一个容器类，代表一个值存在或�
 
 Java8中允许接口中包含具有具体实现的方法,该方法称为"默认方法"，默认方法使用default关键字修饰
 
-**接口中的默认方法**
+## 接口中的默认方法 ##
 
 接口默认方法的"类优先"原则
 
@@ -1693,6 +1693,8 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
 	        executorService.shutdown();
 	    }
 
+## LocalDate、LocalTime、LocalDateTime ##
+
 **LocalDate**、**LocalTime**、**LocalDateTime**类的实例是不可变的对象,分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的日期或时间，并不包含当前的时间信息.也不包含与时区相关的信息
 
 	now()	//静态方法,根据当前时间创建对象
@@ -1734,7 +1736,7 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
         System.out.println(localDateTime.getSecond());		//0
     }
 
-**Instant时间戳**
+## Instant时间戳 ##
 
 用于"时间戳"的运算。它是以Unix元年(传统的设定为UTC时区1970年1月1日午夜时分)开始所经历的描述进行运算
 
@@ -1755,7 +1757,7 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
         System.out.println(instant2);			//1970-01-01T00:00:05Z
     }
 
-**Duration和Period**
+## Duration和Period ##
 
 - Duration:用于计算两个"时间"间隔
 - Period:用于计算两个"日期"间隔
@@ -1788,7 +1790,7 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
 	
 	    }
 
-**日期的操纵**
+## 日期的操纵 ##
 
 - TemporalAdjuster:时间校正器,有时我们可能需要获取例如:将日期调整到"下个周日"等 操作
 - TemporalAdjusters:该类通过静态方法提供了大量的常用TemporalAdjuster的实现。
@@ -1822,7 +1824,7 @@ Java8中允许接口中包含具有具体实现的方法,该方法称为"默认�
 	        System.out.println(localDateTime4);		//2019-10-10T16:04:11.772
 	    }
 
-**解析与格式化**
+## 解析与格式化 ##
 
 java.time.format.DateTimeFormatter类:该类提供了三种格式化方法:
 
@@ -1853,7 +1855,7 @@ java.time.format.DateTimeFormatter类:该类提供了三种格式化方法:
 	
 	    }
 
-**时区的处理**
+## 时区的处理 ##
 
 Java8中加入了对时区的支持,带时区的时间分别为:ZonedDate、ZonedTime、ZonedDateTime其中每个时区都对应着ID,地区ID都为"{区域}/{城市}"的格式例如:Asia/Shanghai等
 
@@ -1949,6 +1951,3 @@ Java8对注解处理提供了两点改进:可重复的注解及可用于类型�
 	        System.out.println(str);
 	    }
 	}
-
-
-111
