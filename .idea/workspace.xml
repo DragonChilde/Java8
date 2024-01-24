@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="88f70021-f31d-454c-83ed-56107c8142e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
@@ -7,9 +10,6 @@
       <change beforePath="$PROJECT_DIR$/Java8.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Java8.kotlin_module" beforeDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -173,18 +173,20 @@
       </list>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="D:/Server/apache-maven-3.5.4" />
-        <option name="userSettingsFile" value="D:\Server\apache-maven-3.5.4\conf\settings.xml" />
+        <option name="localRepository" value="E:\Program Files\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../Program Files/apache-maven-3.9.3" />
+        <option name="userSettingsFile" value="E:\Program Files\apache-maven-3.9.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-4" />
@@ -192,6 +194,7 @@
     <option name="width" value="1920" />
     <option name="height" value="1088" />
   </component>
+  <component name="ProjectId" id="2bOoytOMYHAE25RvR9frMANOsRh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -267,67 +270,78 @@
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.36976743" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "jdk21",
+    "last_opened_file_path": "E:/Learning/Java8/java8/src",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Learning\Java8\java8\src" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.TestAnnotation">
+  <component name="RunManager" selected="Application.com.java.anno.TestAnnotation">
     <configuration name="TestAnnotation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.anno.TestAnnotation" />
-      <module name="Java8" />
+      <option name="MAIN_CLASS_NAME" value="com.java8.anno.TestAnnotation" />
+      <module name="JavaNF" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TestDefaultInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.myinterface.TestDefaultInterface" />
-      <module name="Java8" />
+      <option name="MAIN_CLASS_NAME" value="com.java8.myinterface.TestDefaultInterface" />
+      <module name="JavaNF" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TestLocalDateTime" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.date.TestLocalDateTime" />
-      <module name="Java8" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestOptional" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.optional.TestOptional" />
-      <module name="Java8" />
+      <option name="MAIN_CLASS_NAME" value="com.java8.date.TestLocalDateTime" />
+      <module name="JavaNF" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="TestSimpleDateFormat" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.java.date.TestSimpleDateFormat" />
-      <module name="Java8" />
+      <option name="MAIN_CLASS_NAME" value="com.java8.date.TestSimpleDateFormat" />
+      <module name="JavaNF" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.java.anno.TestAnnotation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.java.anno.TestAnnotation" />
+      <module name="java8" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="JavaNF" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="JavaNF" />
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestOptional" />
+      <item itemvalue="Application.com.java.anno.TestAnnotation" />
       <item itemvalue="Application.TestDefaultInterface" />
       <item itemvalue="Application.TestSimpleDateFormat" />
       <item itemvalue="Application.TestLocalDateTime" />
@@ -335,14 +349,15 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.com.java.anno.TestAnnotation" />
         <item itemvalue="Application.TestAnnotation" />
         <item itemvalue="Application.TestLocalDateTime" />
         <item itemvalue="Application.TestSimpleDateFormat" />
         <item itemvalue="Application.TestDefaultInterface" />
-        <item itemvalue="Application.TestOptional" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="88f70021-f31d-454c-83ed-56107c8142e1" name="Default Changelist" comment="" />
@@ -362,6 +377,7 @@
       <workItem from="1570501222049" duration="13181000" />
       <workItem from="1570588506839" duration="12951000" />
       <workItem from="1570775307410" duration="4127000" />
+      <workItem from="1706095744557" duration="493000" />
     </task>
     <servers />
   </component>
